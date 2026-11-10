@@ -1,53 +1,50 @@
-# Threat Intelligence Agent
+# Incident Report Agent
 
 ## Summary
 
-- **advisory:** DEMO-2026-001
-- **scope:** Fictional training lab snapshot
-- **assets examined:** 3
-- **product candidates:** 3
-- **affected version matches:** 1
-- **assessment:** potential\_exposure
+- **case id:** DEMO-IR-001
+- **title:** Fictional account access investigation
+- **events:** 2
+- **actions:** 1
+- **document status:** draft\_for\_review
 
 ## Findings
 
 ### Finding 1
 
-- **asset:** lab-gateway
-- **version:** 2\.4\.1
-- **status:** affected\_version\_match
-- **exposure:** internet
-- **review priority:** expedite
-- **evidence:** \["inventory:lab-gateway", "https://example\.org/advisories/DEMO-2026-001"\]
+- **type:** reported\_event
+- **id:** event-1
+- **timestamp:** 2026-01-15T10:04:00Z
+- **source:** Synthetic identity log
+- **description:** A new session was recorded from a documentation IP address\.
 
 ### Finding 2
 
-- **asset:** lab-worker
-- **version:** null
-- **status:** version\_unknown
-- **exposure:** internal
-- **review priority:** verify
-- **evidence:** \["inventory:lab-worker", "https://example\.org/advisories/DEMO-2026-001"\]
+- **type:** reported\_event
+- **id:** event-2
+- **timestamp:** 2026-01-15T10:15:00Z
+- **source:** Synthetic analyst note
+- **description:** The account owner confirmed the observed session was not expected\.
 
 ### Finding 3
 
-- **asset:** lab-updated
-- **version:** 2\.5\.0
-- **status:** version\_not\_listed
-- **exposure:** internal
-- **review priority:** verify
-- **evidence:** \["inventory:lab-updated", "https://example\.org/advisories/DEMO-2026-001"\]
+- **type:** reported\_action
+- **id:** action-1
+- **description:** Revoke the unexpected session after owner approval\.
+- **owner:** Incident lead
+- **reported status:** proposed
+- **evidence ids:** \["event-1", "event-2"\]
 
 
 ## Limitations
 
-- Exact vendor/product and exact version matching only; no aliases, ranges, backport or reachability analysis\.
-- A listed vulnerable version does not prove exploitability or compromise; a non-listed version is not confirmed safe\.
-- The input snapshot is not independently verified\. Inventory completeness and source freshness are unknown\.
-- Review priority is a transparent example heuristic, not CVSS, SSVC or a remediation SLA\.
+- Post-login activity and business impact remain unverified\.
+- This report reflects caller-supplied records\. Action statuses and source claims are not independently verified\.
+- The tool does not infer root cause, business impact, compromise, closure, or actions from chat markers\.
+- No report is posted or sent; JSON and Markdown are emitted locally for review\.
 
 ## Next Steps
 
-- Verify advisory scope, version ranges and exploitation evidence against primary sources\.
-- Check runtime version, configuration, reachability and mitigations for each candidate\.
-- Record missing inventory coverage and assign an owner to unresolved exposure\.
+- Confirm the timeline, action status, evidence references and unresolved questions with the incident owner\.
+- Add a supported impact assessment and distinguish root cause from working hypotheses\.
+- Obtain the appropriate review before distributing the report or closing the incident\.

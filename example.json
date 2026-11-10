@@ -1,39 +1,33 @@
 {
-  "advisory": {
-    "id": "DEMO-2026-001",
-    "vendor": "Example Vendor",
-    "product": "Example Gateway",
-    "affected_versions": [
-      "2.4.0",
-      "2.4.1"
-    ],
-    "source": "https://example.org/advisories/DEMO-2026-001",
-    "exploitation": "unknown"
-  },
-  "inventory": {
-    "scope": "Fictional training lab snapshot",
-    "assets": [
-      {
-        "id": "lab-gateway",
-        "vendor": "Example Vendor",
-        "product": "Example Gateway",
-        "version": "2.4.1",
-        "exposure": "internet"
-      },
-      {
-        "id": "lab-worker",
-        "vendor": "Example Vendor",
-        "product": "Example Gateway",
-        "version": null,
-        "exposure": "internal"
-      },
-      {
-        "id": "lab-updated",
-        "vendor": "Example Vendor",
-        "product": "Example Gateway",
-        "version": "2.5.0",
-        "exposure": "internal"
-      }
-    ]
-  }
+  "case_id": "DEMO-IR-001",
+  "title": "Fictional account access investigation",
+  "events": [
+    {
+      "id": "event-2",
+      "timestamp": "2026-01-15T10:15:00Z",
+      "source": "Synthetic analyst note",
+      "description": "The account owner confirmed the observed session was not expected."
+    },
+    {
+      "id": "event-1",
+      "timestamp": "2026-01-15T10:04:00Z",
+      "source": "Synthetic identity log",
+      "description": "A new session was recorded from a documentation IP address."
+    }
+  ],
+  "actions": [
+    {
+      "id": "action-1",
+      "description": "Revoke the unexpected session after owner approval.",
+      "owner": "Incident lead",
+      "status": "proposed",
+      "evidence_ids": [
+        "event-1",
+        "event-2"
+      ]
+    }
+  ],
+  "unknowns": [
+    "Post-login activity and business impact remain unverified."
+  ]
 }

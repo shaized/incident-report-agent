@@ -1,18 +1,18 @@
 ---
-name: threat-intel-agent
-description: Model-agnostic threat intelligence skill with a local advisory-to-inventory matching tool and synthetic examples.
+name: incident-report-agent
+description: Incident reporting skill with chronological evidence, explicit action states and locally generated Markdown/JSON drafts.
 ---
 
-# Threat Intelligence Agent
+# Incident Report Agent
 
-Turn an advisory into an evidence-backed exposure review.
+Create a traceable incident narrative from structured records.
 
 ## Workflow
 
-1. Identify the advisory, affected product, source dates and the assessment scope. Prefer primary vendor advisories and authoritative exploitation evidence.
-2. Compare the advisory with the supplied asset inventory using agent.py. The helper accepts exact versions only; manually resolve version ranges, packaging and backports with evidence.
-3. Assess runtime presence, configuration, exposure, required attacker access and controls separately. Record what is measured and what is inferred.
-4. Return an exposure assessment with evidence references, missing coverage, confidence reasoning and specific next steps. A version match establishes a candidate, not compromise.
+1. Identify the case, intended audience, reporting scope and the source records that support the narrative.
+2. Run agent.py to validate event references and generate a draft. Preserve source timestamps and use UTC consistently when reconstructing the chronology.
+3. Separate proposed, approved, executed and verified actions. Do not infer an action happened because it was discussed, or that an incident is closed because a message says close.
+4. Write a concise narrative with supported impact, timeline, decisions, unresolved questions and follow-up owners. Leave unsupported root cause and impact explicitly unresolved, and prepare the report for review before distribution.
 
 ## Local evidence tool
 

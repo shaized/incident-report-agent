@@ -2,7 +2,7 @@
 
 ## Input
 
-The root has advisory and inventory objects. advisory requires id, vendor, product, affected_versions (a nonempty list of exact version strings), source and exploitation (observed, not_reported or unknown). inventory requires scope and assets. Each asset requires a unique id, vendor, product, version (string or null), and exposure (internet, internal or unknown). Vendor/product matching ignores case and surrounding whitespace; version matching is exact. An unlisted version is unresolved, not safe.
+The root requires case_id, title and events. Events need unique id, timestamp with UTC offset, source and description. Optional actions need unique id, description, owner, status (proposed/approved/executed/verified) and nonempty evidence_ids referring to events. Executed/verified actions require executed_at. Verified actions also require nonempty verification_evidence_ids pointing to events. Optional unknowns is a list of strings. Every output remains draft_for_review.
 
 See [example.json](example.json) for a complete fictional input. All demo identities, indicators, events, products and reputation providers are synthetic. Documentation IPs and example domains are not threat intelligence.
 
@@ -16,6 +16,6 @@ JSON preserves evidence text. Markdown renders evidence as literal escaped text,
 
 ## Example interpretation
 
-One affected-version candidate, one unknown version and one version not listed in the advisory. Overall exposure remains subject to verification.
+A correctly ordered timeline and one proposed action. The record remains a draft with unresolved impact, even if source text suggests closure.
 
-Vendor advisories and package maintainers should be the primary source for affected ranges; the demo advisory is fictional.
+Background: [NIST SP 800-61 Rev. 3](https://csrc.nist.gov/pubs/sp/800/61/r3/final). The output format is intentionally general-purpose.
